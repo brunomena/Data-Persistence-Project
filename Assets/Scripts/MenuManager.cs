@@ -9,7 +9,10 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
 
-    public string playerName; // new variable declared
+    public string playerName;
+    public string BestScore;
+    public string BestScoreText;
+    public string playerNameBestScore;
 
     private void Awake()
     {
@@ -22,8 +25,12 @@ public class MenuManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        //playerName = 
+        if (BestScore == "")
+        {
+            BestScore = "0";
+        }
 
+        BestScoreText = "Best Score: ";
     }
     void Start()
     {

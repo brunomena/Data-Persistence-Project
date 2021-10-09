@@ -13,7 +13,7 @@ public class UIMainScene : MonoBehaviour
     void Start()
     {
         footext = fooText.GetComponent<Text>();
-        footext.text = MenuManager.Instance.playerName;
+        footext.text = MenuManager.Instance.BestScoreText + MenuManager.Instance.playerNameBestScore + " : " + MenuManager.Instance.BestScore;
     }
 
     // Update is called once per frame

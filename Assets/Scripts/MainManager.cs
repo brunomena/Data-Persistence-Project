@@ -11,6 +11,7 @@ public class MainManager : MonoBehaviour
     public Rigidbody Ball;
 
     public Text ScoreText;
+    public Text BestScoreText;
     public GameObject GameOverText;
     
     private bool m_Started = false;
@@ -72,5 +73,14 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+
+        if (int.Parse(MenuManager.Instance.BestScore) < m_Points)
+        {
+            //BestScoreText.text += m_Points;
+            MenuManager.Instance.BestScore = m_Points.ToString();
+            MenuManager.Instance.playerNameBestScore = MenuManager.Instance.playerName;
+            BestScoreText.text = MenuManager.Instance.BestScoreText + MenuManager.Instance.playerNameBestScore + " : " + MenuManager.Instance.BestScore;
+        }
+
     }
 }
